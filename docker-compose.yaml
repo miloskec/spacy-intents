@@ -1,5 +1,6 @@
 services:
   spacy:
+    image: miloskec/spacy-intents:latest
     build: ./spacy
     container_name: spacy-training
     runtime: nvidia
