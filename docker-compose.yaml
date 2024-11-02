@@ -1,0 +1,50 @@
+services:
+  spacy:
+    build: ./spacy
+    container_name: spacy-training
+    runtime: nvidia
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [ gpu ]
+    ports:
+      - "${SPORT}:5001"
+    volumes:
+      - ./spacy/app:/workspace
+      - ./models/spacy:/models/spacy
+      - ./datasets/spacy:/datasets/spacy
+    working_dir: /workspace 
+    command: ["python", "__init__.py"]
+    networks:
+      - nlu_network
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+      - HUGGING_FACE_HUB_TOKEN=${HUGGINGFACE_TOKEN}
+      - SPACY_MODEL=${SPACY_MODEL}
+      - LOG_LEVEL=${LOG_LEVEL}
+    stdin_open: true
+    tty: true
+  
+  # API Gateway Container
+  api_gateway:
+    build: ./gateway  # Dockerfile in the gateway folder
+    container_name: gateway-spacy-training
+    volumes:
+      - ./gateway/app:/workspace  # spaCy workspace
+    working_dir: /workspace 
+    command: ["python", "__init__.py"]
+    networks:
+      - nlu_network
+    ports:
+      - "${GPORT}:5000"  # Gateway API exposed port
+    depends_on:
+      - spacy
+    stdin_open: true
+    tty: true
+
+networks:
+  nlu_network:
+    driver: bridge

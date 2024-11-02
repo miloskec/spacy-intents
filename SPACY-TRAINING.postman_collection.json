@@ -1,0 +1,279 @@
+{
+	"info": {
+		"_postman_id": "e183f6aa-7fd3-440c-87b9-a35f7ce6f900",
+		"name": "SPACY-TRAINING",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9220824"
+	},
+	"item": [
+		{
+			"name": "convert  spaCy clinc_oos",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"dataset_name\":\"clinc/clinc_oos\",\r\n    \"config_name\": \"plus\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5005/convert_dataset/spacy",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5005",
+					"path": [
+						"convert_dataset",
+						"spacy"
+					]
+				},
+				"description": "### Convert Dataset to SpaCy Format\n\nThis endpoint allows you to convert a dataset to SpaCy format.\n\n#### Request Body\n\n- `dataset_name`: The name of the dataset to be converted.\n    \n- `config_name`: The configuration name for the conversion.\n    \n\n#### Response\n\nThe response will be in JSON format with the following schema:\n\n``` json\n{\n    \"message\": \"string\"\n}\n\n ```\n\nThe `message` field may contain a string value as a response message."
+			},
+			"response": []
+		},
+		{
+			"name": "inspect  spaCy dataset clinc_oos",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"dataset_name\":\"clinc/clinc_oos\",\r\n    \"config_name\": \"plus\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5005/inspect_dataset/spacy",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5005",
+					"path": [
+						"inspect_dataset",
+						"spacy"
+					]
+				},
+				"description": "## HTTP POST /inspect_dataset/spacy\n\nThis endpoint is used to inspect a dataset using the Spacy library.\n\n### Request Body\n\n- **dataset_name** (string) - The name of the dataset to be inspected.\n    \n- **config_name** (string) - The configuration name to be used for inspection.\n    \n\n### Response\n\nThe response is a JSON object with the following schema:\n\n``` json\n{\n    \"message\": \"\"\n}\n\n ```\n\n- **message** (string) - A message indicating the result of the dataset inspection."
+			},
+			"response": []
+		},
+		{
+			"name": "convert  spaCy snips_joint_intent",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"dataset_name\":\"bkonkle/snips-joint-intent\",\r\n    \"config_name\": \"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5005/convert_dataset/spacy",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5005",
+					"path": [
+						"convert_dataset",
+						"spacy"
+					]
+				},
+				"description": "### Convert Dataset to Spacy\n\nThis endpoint allows you to convert a dataset to the Spacy format.\n\n#### Request Body\n\n- `dataset_name` (string, required): The name of the dataset to be converted.\n    \n- `config_name` (string, optional): The name of the configuration to be applied.\n    \n\n#### Response\n\nThe response will be in JSON format with the following schema:\n\n``` json\n{\n    \"message\": \"\"\n}\n\n ```"
+			},
+			"response": []
+		},
+		{
+			"name": "inspect  spaCy dataset snips-joint-intent",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"dataset_name\":\"bkonkle/snips-joint-intent\",\r\n    \"config_name\": \"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5005/inspect_dataset/spacy",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5005",
+					"path": [
+						"inspect_dataset",
+						"spacy"
+					]
+				},
+				"description": "### Inspect Dataset using SpaCy\n\nThis endpoint allows you to inspect a dataset using SpaCy.\n\n#### Request Body\n\n- `dataset_name` (string) - The name of the dataset to be inspected.\n    \n- `config_name` (string, optional) - The name of the configuration to be used.\n    \n\n#### Response\n\nThe response is a JSON object with the following schema:\n\n``` json\n{\n    \"message\": \"string\"\n}\n\n ```\n\n- `message` (string) - A message indicating the result of the dataset inspection."
+			},
+			"response": []
+		},
+		{
+			"name": "train  spaCy",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"dataset_name\":\"clinc/clinc_oos\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5005/train/spacy",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5005",
+					"path": [
+						"train",
+						"spacy"
+					]
+				},
+				"description": "### POST /train/spacy\n\nThis endpoint is used to train the Spacy model with a specified dataset.\n\n#### Request Body\n\n- dataset_name (string, required): The name of the dataset to be used for training the Spacy model.\n    \n\nExample:\n\n``` json\n{\n    \"dataset_name\": \"clinc/clinc_oos\"\n}\n\n ```\n\n#### Response\n\nThe response will be a JSON object with the following schema:\n\n``` json\n{\n    \"message\": \"\"\n}\n\n ```"
+			},
+			"response": []
+		},
+		{
+			"name": "train  spaCy snips-joint-intent",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"dataset_name\":\"bkonkle/snips-joint-intent\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5005/train/spacy",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5005",
+					"path": [
+						"train",
+						"spacy"
+					]
+				},
+				"description": "### POST /train/spacy\n\nThis endpoint is used to train the Spacy model with the specified dataset.\n\n#### Request Body\n\n- dataset_name (string, required): The name of the dataset to be used for training.\n    \n\n#### Response\n\nThe response is in JSON format and includes the following schema:\n\n``` json\n{\n    \"type\": \"object\",\n    \"properties\": {\n        \"message\": {\n            \"type\": \"string\"\n        }\n    }\n}\n\n ```"
+			},
+			"response": []
+		},
+		{
+			"name": "test spaCy",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"text\":\"How do you say Hello on Serbian?\",\r\n    \"dataset_name\":\"clinc/clinc_oos\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5005/test/spacy",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5005",
+					"path": [
+						"test",
+						"spacy"
+					]
+				},
+				"description": "This endpoint is used to make an HTTP POST request to [http://localhost:5005/test/spacy](http://localhost:5005/test/spacy) in order to analyze text using the Spacy library. The request should include a payload in raw JSON format with the \"text\" and \"dataset_name\" keys.\n\n### Request Body\n\n- `text` (string): The text to be analyzed.\n    \n- `dataset_name` (string): The name of the dataset to be used for analysis.\n    \n\n### Response\n\nUpon a successful execution, the endpoint returns a JSON object with the following structure:\n\n``` json\n{\n    \"intents\": [[\"\"]],\n    \"entities\": [[\"\"]]\n}\n\n ```\n\n- `intents` (array of arrays): The detected intents in the analyzed text.\n    \n- `entities` (array of arrays): The detected entities in the analyzed text.\n    \n\nThe status code for a successful response is 200, and the content type is \"application/json\"."
+			},
+			"response": []
+		},
+		{
+			"name": "test spaCy bkonkle/snips-joint-intent",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"text\":\"Promeni na sledeću pesmu i rezerviši let za Turkmenistan za sutrašnji let u 16:35, takođe, molim te proveri prognozu vremena za 27. avgust 2025.\",\r\n    \"dataset_name\":\"bkonkle/snips-joint-intent\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5005/test/spacy",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5005",
+					"path": [
+						"test",
+						"spacy"
+					]
+				},
+				"description": "### POST /test/spacy\n\nThis endpoint allows you to analyze text using the Spacy library.\n\n#### Request Body\n\n- `text` (text): The input text to be analyzed.\n    \n- `dataset_name` (text): The name of the dataset to be used for analysis.\n    \n\n#### Response\n\n- Status: 200\n    \n- Content-Type: application/json\n    \n- `intents` (array): An array of detected intents in the input text.\n    \n- `entities` (array): An array of detected entities in the input text."
+			},
+			"response": []
+		},
+		{
+			"name": "online check",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5005",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5005"
+				},
+				"description": "### GET Request Description\n\nThis endpoint makes an HTTP GET request to retrieve data from [http://localhost:5005](http://localhost:5005). It does not require any request body.\n\n### Response\n\nThe response returned a status code of 404 and the content type is application/json. The response body follows the JSON schema:\n\n``` json\n{\n    \"detail\": \"\"\n}\n\n ```"
+			},
+			"response": []
+		}
+	]
+}
